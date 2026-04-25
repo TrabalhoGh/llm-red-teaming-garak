@@ -1,46 +1,53 @@
 # LLM Red Teaming with Garak & Ollama
 
-Practical project focused on **AI Security** and **LLM Red Teaming**, testing vulnerabilities in Large Language Models, especially **Prompt Injection** attacks.
+Practical **AI Security** project focused on testing vulnerabilities in Large Language Models using industry tools.
 
-## 🎯 Project Objective
+## 🎯 Objective
 
-Perform automated security testing on open-source LLMs using industry-standard tools to identify weaknesses in prompt handling and model behavior.
+Perform automated red teaming on LLMs to identify weaknesses, especially **Prompt Injection** attacks.
 
 ## 🛠️ Tools Used
 
-- **Garak** (NVIDIA) — Automated LLM vulnerability scanner
-- **Promptfoo** — Prompt testing and evaluation framework
-- **Ollama** + **Llama 3.2** — Local model execution environment
+- **Garak** (NVIDIA) — LLM vulnerability scanner
+- **Promptfoo** — Prompt testing framework  
+- **Ollama** + **Llama 3.2** — Local model runner
 
-## 📊 Key Findings
+## 📊 Key Results
 
-Tested Llama 3.2 using Garak's `promptinject` probe:
+Tested Llama 3.2 with Garak's `promptinject` probe:
 
 - **HijackHateHumans**: 42% – 45% success rate
-- **HijackKillHumans**: 17% – 19% success rate  
-- **HijackLongPrompt**: **63% – 66%** success rate ← **Highly vulnerable**
-- **AttackRogueString**: 0% success rate (model resisted well)
+- **HijackKillHumans**: 17% – 19% success rate
+- **HijackLongPrompt**: **63% – 66%** success rate ← Highly vulnerable
+- **AttackRogueString**: 0% success rate
 
-**Conclusion**: Llama 3.2 is significantly vulnerable to prompt injection attacks, particularly long and complex hijacking techniques. This highlights the importance of implementing proper guardrails in production LLM applications.
+**Conclusion**: Llama 3.2 is significantly vulnerable to prompt injection, especially with long and complex prompts.
+
+## 📸 Screenshots
+
+![Garak Scan Running](images/garak-terminal.png)
+
+![Garak Results Summary](images/garak-results.png)
+
+![Garak HTML Report](images/garak-report.png)
 
 ## 📁 Repository Contents
 
 - Full Garak scan reports (HTML + JSONL)
-- Promptfoo test configurations
-- Raw results and hit logs
-- Analysis of most effective attack vectors
+- Promptfoo configurations
+- Screenshots of results
+- Analysis of attack success rates
 
 ## 🚀 How to Reproduce
 
 ```powershell
-# 1. Install and run Ollama
+# 1. Install Ollama and pull model
 ollama pull llama3.2
-ollama run llama3.2
 
-# 2. Setup Garak environment
+# 2. Setup Garak
 python -m venv garak-env
 .\garak-env\Scripts\Activate.ps1
 pip install -U garak
 
-# 3. Run Prompt Injection scan
+# 3. Run scan
 garak --model_type ollama --model_name llama3.2 --probes promptinject --generations 10
