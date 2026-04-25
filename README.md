@@ -25,11 +25,11 @@ Tested Llama 3.2 with Garak's `promptinject` probe:
 
 ## 📸 Screenshots
 
-![Garak Scan Running](images/garak-terminal.png)
+### Garak Scan in Terminal
+![Garak Terminal](images/garak-terminal.png)
 
-![Garak Results Summary](images/garak-results.png)
-
-![Garak HTML Report](images/garak-report.png)
+### Garak HTML Report
+![Garak Report](images/garak-report.png)
 
 ## 📁 Repository Contents
 
