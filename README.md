@@ -33,10 +33,10 @@ Tested Llama 3.2 with Garak's `promptinject` probe:
 
 ## 📁 Repository Contents
 
-- Full Garak scan reports (HTML + JSONL)
-- Promptfoo configurations
-- Screenshots of results
-- Analysis of attack success rates
+- **reports/** — Relatórios detalhados gerados pelo Garak (arquivos .html e .jsonl)
+- **images/** — Screenshots dos scans e resultados
+- **configs/** — Arquivos de configuração usados (promptfooconfig.yaml)
+- **README.md** — Este arquivo com objetivo, resultados e instruções
 
 ## 🚀 How to Reproduce
 
